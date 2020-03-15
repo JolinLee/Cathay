@@ -86,17 +86,17 @@ def filter_b_cal_statistics(statistics_data: pd):
 
 if __name__ == '__main__':
     #整理檔案
-    # merge_all_data()
+    merge_all_data()
 
     data = pd.read_csv("./lvr_landcsv/lvr_land_a.csv")
 
-    # data_cleaning = clean_data(data)
-    # filter_a_save(data_cleaning)
+    data_cleaning = clean_data_filter_a(data)
+    filter_a_save(data_cleaning)
 
     data_cleaning_b = clean_data_filter_b(data)
     filter_b_cal_statistics(data_cleaning_b)
 
-    # print(df_all.shape)
+
 
 
 
