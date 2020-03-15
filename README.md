@@ -1,6 +1,4 @@
-# Cathay
-Cathay 作業
-====
+# Cathay 作業
 
 Test A : 資料清洗
 ------
