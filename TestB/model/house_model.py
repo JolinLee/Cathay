@@ -1,5 +1,6 @@
 class house_object(object):
     def __init__(self):
+        # 屋主姓名
         self.landlord_name = ''
         self.landlord_status = ''
         self.phone = ''
@@ -9,6 +10,8 @@ class house_object(object):
 
         self.landlord_first_name = ''
         self.region_name = ''
+        self.is_owner = ''
+        self.owner_sex = ''
 
         # Save requment
         #   出租者(陳先生)   'linkman'

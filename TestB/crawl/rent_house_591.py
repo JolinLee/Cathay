@@ -113,10 +113,11 @@ class Rent_House_591(object):
         # refresh_time = ("更新時間：{}".format(time.ctime(house['refreshtime'])))
 
         house_obj = house_object()
-        # 租屋者姓名
+        # 刊登者姓名
         house_obj.landlord_name = house['linkman']
         # 刊登者身分
-        house_obj.landlord_status = house['nick_name']
+        nick_array = house['nick_name'].split(' ')
+        house_obj.landlord_status = nick_array[0] if len(nick_array) > 0 else ''
         # 聯繫電話
         house_obj.phone = 0
         # 建築型態
@@ -126,11 +127,20 @@ class Rent_House_591(object):
         # 性別要求
         house_obj.sex_requirement = 0
 
+        linkman = house['linkman'][0]
+        # 屋主性別
+        house_obj.owner_sex = 1 if '先生' in linkman else 2
+
         # 租屋者姓氏
-        house_obj.landlord_first_name = house['linkman'][0]
+        linkman = (linkman.replace('先生', '')).replace('小姐', '')
+        house_obj.landlord_first_name = linkman
 
         # 地區
         house_obj.region_name = house['region_name']
+
+        # 屋主親自刊登
+        house_obj.is_owner = True if house_obj.landlord_status == '屋主' else False
+
         house_dict = house_obj.__dict__
         return house_dict
 

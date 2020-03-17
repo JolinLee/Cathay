@@ -1,6 +1,6 @@
 import pymongo
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+myclient = pymongo.MongoClient("localhost:27017/")
 house_db = myclient["house_db"]
 
 def save_house(house_list):
@@ -11,8 +11,18 @@ def save_house(house_list):
 
 def search_house(parm):
     house_filter = {}
-    if ('aa' in parm) and (parm['aa'] != ''):
-        house_filter['aa'] = parm['aa']
+    if ('region_name' in parm) and (parm['region_name'] != ''):
+        house_filter['region_name'] = parm['region_name']
+    if ('sex_requirement' in parm) and (parm['sex_requirement'] != 0):
+        house_filter['sex_requirement'] = parm['sex_requirement']
+    if ('phone' in parm) and (parm['phone'] != ''):
+        house_filter['phone'] = parm['phone']
+    if ('home_owner' in parm) and (parm['home_owner'] != ''):
+        house_filter['home_owner'] = parm['home_owner']
+    if ('landlord_first_name' in parm) and (parm['landlord_first_name'] != ''):
+        house_filter['landlord_first_name'] = parm['landlord_first_name']
+    if ('is_owner' in parm) and (parm['is_owner'] != 0):
+        house_filter['is_owner'] = parm['is_owner']
 
     house_coll = house_db['house_coll']
     result = house_coll.find(house_filter)

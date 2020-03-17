@@ -8,8 +8,8 @@ if __name__ == '__main__':
     response = requests.get('localhost:8080/house_search', params={'phone': '02-22223333'})
 
     # - 所有【非屋主自行刊登】的租屋物件
-    response = requests.get('localhost:8080/house_search', params={'home_owner': '屋主'})
+    response = requests.get('localhost:8080/house_search', params={'is_owner': False})
 
     # - 【臺北】【屋主為女性】【姓氏為吳】所刊登的所有租屋物件
     response = requests.get('localhost:8080/house_search',
-                            params={'region_name': '台北市', 'sex_requirement': 2, 'landlord_first_name': '吳'})
+                            params={'region_name': '台北市', 'owner_sex': 2, 'landlord_first_name': '吳'})
