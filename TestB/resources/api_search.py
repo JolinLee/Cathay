@@ -3,6 +3,8 @@ from flask import request
 from TestB.tools.api_result import apiResult
 
 from TestB.adapter.house_repository import search_house
+
+
 class House_Search(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
@@ -20,7 +22,7 @@ class House_Search(Resource):
 
         try:
             arg = self.reqparse.parse_args()
-            request
+
             data = search_house(arg)
             return apiResult(200, data, 'Get rent house success')
         except Exception as e:

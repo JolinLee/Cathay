@@ -15,5 +15,5 @@ class CollectBase():
 
         self.crawl_module.content_download()
         collect_region_house = self.crawl_module.search_house(region)
-        print(collect_region_house)
+        # print(collect_region_house)
         save_house(collect_region_house)

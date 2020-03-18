@@ -1,5 +1,6 @@
 import json
 import datetime
+from bson import ObjectId
 
 
 class DateEncoder(json.JSONEncoder):
@@ -8,6 +9,8 @@ class DateEncoder(json.JSONEncoder):
             return obj.strftime('%Y-%m-%d %H:%M:%S')
         elif isinstance(obj, datetime.date):
             return obj.strftime("%Y-%m-%d")
+        elif isinstance(obj, ObjectId):
+            return str(obj)
         else:
             return json.JSONEncoder.default(self, obj)
 

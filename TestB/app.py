@@ -4,6 +4,7 @@ from flask_restful import Api
 from datetime import date, datetime
 import traceback
 from flasgger import Swagger
+from bson import ObjectId
 
 from TestB.tools.api_result import apiResult
 from TestB.resources.api_search import House_Search
@@ -23,7 +24,8 @@ class CustomJSONEncoder(JSONEncoder):
                 return obj.strftime("%Y-%m-%d")
             elif isinstance(obj, datetime):
                 return obj.strftime('%Y-%m-%d %H:%M:%S')
-
+            elif isinstance(obj, ObjectId):
+                return str(obj)
             iterable = iter(obj)
         except TypeError:
             pass
@@ -75,7 +77,6 @@ def after_request(response):
 
     if resp is not None:
         code, status, description, data = resp["code"], resp["status"], resp["description"], resp['data']
-        project_id, model_id = 0, 0
 
         response_info = "Server response info, code: {0}, status: {1}, description: {2}"
 
