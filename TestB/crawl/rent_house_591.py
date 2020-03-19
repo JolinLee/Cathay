@@ -98,19 +98,6 @@ class Rent_House_591(object):
                 yield house
 
     def _log_house_info(self, house):
-        name = (
-            "名稱：{}-{}-{}".format(
-                house['region_name'],
-                house['section_name'],
-                house['fulladdress'],
-            )
-        )
-        # weburl = ("網址：{}".format(WEB_URL_FORMAT_STR.format(house['post_id'])))
-        rent_price = ("租金：{} {}".format(house['price'], house['unit']))
-        space = ("坪數：{} 坪".format(house['area']))
-        layout = ("格局：{}".format(house['layout']))
-
-        # refresh_time = ("更新時間：{}".format(time.ctime(house['refreshtime'])))
 
         house_obj = house_object()
         # 刊登者姓名
