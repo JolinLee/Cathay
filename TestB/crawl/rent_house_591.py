@@ -129,7 +129,7 @@ class Rent_House_591(object):
 
         linkman = house['linkman'][0]
         # 屋主性別
-        house_obj.owner_sex = 1 if '先生' in linkman else 2
+        house_obj.owner_sex = 1 if '先生' in house['linkman'] else 2
 
         # 租屋者姓氏
         linkman = (linkman.replace('先生', '')).replace('小姐', '')
